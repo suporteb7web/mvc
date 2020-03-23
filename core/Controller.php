@@ -5,6 +5,11 @@ use \src\Config;
 
 class Controller {
 
+    protected function redirect($url) {
+        header("Location: ".$this->getBaseUrl().$url);
+        exit;
+    }
+
     private function getBaseUrl() {
         $base = (isset($_SERVER['HTTPS']) && strtolower($_SERVER['HTTPS']) == 'on') ? 'https://' : 'http://';
         $base .= $_SERVER['SERVER_NAME'];

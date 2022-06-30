@@ -1,0 +1,113 @@
+.feed-item {
+
+}
+.feed-item-head {
+    align-items: center;
+}
+.feed-item-head-photo {
+    margin-right:15px;
+}
+.feed-item-head-photo img {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.fidi-name {
+    color:#224b7a;
+    font-size:16px;
+    display:inline-block;
+    margin-right:5px;
+    margin-bottom:5px;
+}
+.fidi-action,
+.fidi-date  {
+    color:#999;
+    font-size:14px;
+}
+
+.feed-item-head-info {
+    flex:1;
+}
+.feed-item-head-btn {
+    margin-right:5px;
+    cursor: pointer;
+}
+.feed-item-head-btn img {
+    width:20px;
+    height:20px;
+}
+
+.feed-item-body {
+    color:#333;
+    line-height: 20px;
+    font-size:14px;
+}
+.feed-item-body img {
+    max-width:100%;
+}
+
+.feed-item-buttons {
+    border-top:1px solid #EEE;
+    padding:10px 0;
+}
+
+.like-btn,
+.msg-btn {
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+    height:25px;
+    background-size: 25px;
+    background-position: left;
+    background-repeat: no-repeat;
+    padding-left:35px;
+    margin-right:20px;
+    font-size:15px;
+}
+.like-btn {
+    background-image: url('../images/heart-off.png');
+    color:#5F7D95;
+}
+.like-btn.on {
+    background-image: url('../images/heart-on.png');
+    color:#FB5252;
+}
+
+.msg-btn {
+    background-image: url('../images/comment.png');
+    color:#5F7D95;
+}
+
+.feed-item-comments {
+    border-top:1px solid #EEE;
+}
+
+.fic-item-photo {
+    margin-right: 10px;
+}
+.fic-item-photo img {
+    width:35px;
+    height:35px;
+    border-radius:50%;
+}
+.fic-item-info a {
+    display:block;
+    margin-bottom:5px;
+    color:#224b7a;
+    font-size:14px;
+    text-decoration: none;
+}
+.fic-item-info {
+    color:#333;
+    font-size:13px;
+}
+.fic-item-field {
+    flex:1;
+    height:35px;
+    border-radius:20px;
+    border:0;
+    outline:0;
+    background-color:#eee;
+    font-size:13px;
+    padding:0 15px;
+}

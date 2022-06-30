@@ -1,0 +1,481 @@
+@import 'defaults.css';
+@import 'feed-item.css';
+@import 'modal.css';
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+body {
+    font-family: Helvetica;
+    font-size:13px;
+    background-color:#edeef0;
+    margin:0;
+    padding-bottom:50px;
+}
+.container {
+    max-width:1040px;
+    margin:auto;
+}
+header {
+    background-color:#4a76a8;
+    height:45px;
+    box-shadow: 0px 0px 4px #333;
+    position:relative;
+    z-index:99;
+}
+header .container {
+    display:flex;
+    height:inherit;
+}
+header .logo {
+    width: 200px;
+    display: flex;
+    align-items: center;
+}
+header .logo a {
+    display: flex;
+}
+header .logo img {
+    height:20px;
+}
+header .head-side {
+    flex:1;
+    display:flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.head-side .head-side-left {
+    display: flex;
+}
+.head-side .head-side-right {
+    display: flex;
+    align-items: center;
+}
+.search-area input {
+    background-color:#224b7a;
+    background-image: url('../images/search.png');
+    background-size: 13px;
+    background-position-x: 10px;
+    background-position-y: center;
+    background-repeat: no-repeat;
+    width:200px;
+    height:25px;
+    border-radius:15px;
+    border:0;
+    outline:0;
+    padding-left:30px;
+    transition: all .3s;
+}
+::placeholder {
+    color:#A2B4C9;
+}
+.search-area input:focus {
+    width:300px;
+    background-color: #FFF;
+}
+
+.user-area {
+    display:flex;
+    align-items: center;
+    cursor: pointer;
+    text-decoration: none;
+}
+.user-area-text {
+    color:#FFF;
+    font-size:12px;
+    font-weight: bold;
+    margin-right:10px;
+}
+.user-area-icon {
+    margin-right:5px;
+}
+.user-area-icon img {
+    width:24px;
+    height:24px;
+    border-radius: 50%;
+}
+.user-area-box {
+    width:100px;
+    height:100px;
+    position:absolute;
+    background-color:#fff;
+    top:45px;
+}
+
+.user-logout {
+    display:block;
+    margin-left:15px;
+}
+.user-logout img {
+    width:18px;
+    height:18px;
+}
+
+.main {
+    display:flex;
+}
+.main aside {
+    width:190px;
+    margin-right:10px;
+}
+.main aside nav a {
+    text-decoration: none;
+    display:block;
+    color:#224b7a;
+    margin-bottom:5px;
+}
+.menu-splitter {
+    border-top:1px solid #ccc;
+    margin-bottom:5px;
+}
+.menu-item {
+    display:flex;
+    align-items: center;
+    height:32px;
+    border:1px solid #edeef0;
+}
+.menu-item:hover, .menu-item.active {
+    background-color:#d1d9e0;
+    border:1px solid #CCC;
+}
+.menu-item-icon {
+    width:16px;
+    margin-right:10px;
+    margin-left:5px;
+}
+.menu-item-text {
+    flex:1;
+    font-size:13px;
+}
+.menu-item-badge {
+    background-color:#d1d9e0;
+    padding:5px;
+    border-radius:3px;
+    margin-right:5px;
+}
+
+.main .feed {
+    flex:1;
+}
+
+.feed .box {
+    background-color: #FFF;
+    border:1px solid #c9cacc;
+    border-radius:5px;
+    margin-bottom:10px;
+}
+.box .box-header {
+    padding:10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+.box .box-header-text {
+    flex:1;
+}
+.box .box-header-text span {
+    color:#999;
+}
+.box .box-header-buttons a {
+    font-size:13px;
+    color:#999;
+    text-decoration: none;
+}
+.box .box-body img {
+    max-width:100%;
+}
+
+.feed .border-top-flat {
+    border-top:0;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+}
+
+.feed .row {
+    display:flex;
+}
+.feed .column {
+    display:flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    flex:1;
+}
+.feed .side {
+    flex:none;
+    width:250px;
+}
+
+
+.feed-new-editor {
+    align-items: center;
+}
+.feed-new-avatar {
+    margin-right:10px;
+}
+.feed-new-avatar img {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.feed-new-input-placeholder {
+    flex:1;
+    font-size:14px;
+    color:#333;
+}
+.feed-new-input {
+    flex:1;
+    outline:0;
+    border:0;
+    font-size:14px;
+    display: none;
+    color:#333;
+}
+.feed-new-send {
+    cursor: pointer;
+    margin-right:5px;
+}
+.feed-new-send img {
+    width:25px;
+    height:25px;
+}
+
+.banners .box-body {
+    margin:0 10px 10px 10px;
+}
+.banners .box-body a {
+    display: block;
+    margin-bottom:5px;
+}
+
+.profile-cover {
+    height:250px;
+    background-size: cover;
+    background-position: center;
+}
+
+.profile-info {
+    align-items: center;
+}
+.profile-info-avatar {
+    margin-right:15px;
+}
+.profile-info-avatar img {
+    width:50px;
+    height:50px;
+    border-radius:50%;
+}
+.profile-info-name {
+    flex:1;
+}
+.profile-info-name-text {
+    font-size:20px;
+    margin-bottom:5px;
+}
+.profile-info-name-text a {
+    color:#000;
+    text-decoration: none;
+}
+.profile-info-location {
+    color:#819db9;
+    font-size:13px;
+    text-transform: uppercase;
+    background-image:url('../images/pin.png');
+    background-size: auto 15px;
+    background-position: left center;
+    background-repeat: no-repeat;
+    padding-left:20px;
+}
+
+.profile-info-item {
+    text-align: center;
+}
+.profile-info-item-n {
+    font-weight: bold;
+    font-size:20px;
+    color:#224b7a;
+}
+.profile-info-item-s {
+    font-size:14px;
+    color:#999;
+}
+
+.user-info-mini {
+    display:flex;
+    align-items: center;
+    margin:20px;
+    color:#819db9;
+    font-size:13px;
+}
+.user-info-mini img {
+    width:20px;
+    height:20px;
+    margin-right:15px;
+}
+
+.friend-list {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+}
+.full-friend-list {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+}
+
+.friend-icon {
+    text-align: center;
+    margin:10px 0;
+}
+.friend-icon a {
+    text-decoration: none;
+}
+.friend-icon-avatar {
+    margin-bottom:5px;
+}
+.friend-icon-avatar img {
+    width:55px;
+    height:55px;
+    border-radius:50%;
+}
+.friend-icon-name {
+    width:60px;
+    font-size:14px;
+    margin: auto;
+    color:#224b7a;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.user-photo-item {
+    margin-right:10px;
+}
+.user-photo-item:last-child {
+    margin-right:0;
+}
+.user-photo-item img {
+    max-width: 100%;
+}
+
+.tabs {
+    border-bottom: 1px solid #c9cacc;
+    display: flex;
+}
+.tab-item {
+    padding:20px;
+    font-size:15px;
+    color:#999;
+    border-bottom:2px solid #FFF;
+    cursor: pointer;
+}
+.tab-item:hover {
+    color:#000;
+}
+.tab-item.active {
+    color:#000;
+    border-bottom:2px solid #224b7a;
+}
+.tab-body {
+    display: none;
+    padding:10px 0;
+}
+
+.full-user-photos {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap:10px;
+    margin:20px;
+}
+.full-user-photos .user-photo-item {
+    margin:0;
+}
+
+@media (max-width: 992px) {
+    header .head-side-right {
+        display:none !important;
+    }
+
+    header .logo {
+        margin-left:10px;
+    }
+
+    .search-area input {
+        width:35px;
+    }
+    .search-area input:focus {
+        width:150px;
+    }
+
+    header .head-side {
+        justify-content: flex-end;
+    }
+
+    .head-side-left {
+        margin-right:10px;
+    }
+
+    .main {
+        flex-direction: column;
+    }
+
+    .main aside {
+        width:100%;
+    }
+
+    aside nav {
+        display:flex;
+        width: 100%;
+        overflow-x: auto;
+        padding: 0 10px;
+    }
+
+    .main aside nav a {
+        margin-right:15px;
+    }
+
+    .menu-splitter {
+        display:none;
+    }
+
+    .menu-item-badge {
+        display:none;
+    }
+
+    .menu-item-text {
+        margin-right:5px;
+    }
+
+    .feed .side {
+        display:none;
+    }
+
+    .feed > .row > .column {
+       padding:0 10px; 
+    }
+
+    .profile-cover {
+        height:150px;
+    }
+
+    .profile-info {
+        flex-direction: column;
+    }
+
+    .profile-info-name {
+        margin-top:10px;
+    }
+
+    .profile-info-data {
+        margin-top:30px;
+    }
+
+    .full-friend-list {
+        grid-template-columns: repeat(3, 1fr);
+    }
+
+    .full-user-photos {
+        grid-template-columns: repeat(1, 1fr);
+    }
+
+}

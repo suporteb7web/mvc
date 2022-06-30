@@ -30,7 +30,6 @@ class LoginHandler {
 
     public static function verifyLogin($email, $password) {
         $user = User::select()->where('email', $email)->one();
-        die("oi");
         if($user){
            if(password_verify($password, $user['password'])) {
                 $token = md5(time().rand(0,9999).time());

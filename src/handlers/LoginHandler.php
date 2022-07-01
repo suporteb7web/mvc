@@ -10,7 +10,7 @@ class LoginHandler {
             $token = $_SESSION['token'];
             
             // Dados enviados para o token 
-            $data = User::select()->where('token', $token)->one();
+            $data = User::select()->where('token', $token)->execute();
             // Se achou os dados vai retornar 
             if(count($data) > 0 ){
 
@@ -47,4 +47,27 @@ class LoginHandler {
         return false;
     }
 
+    public static function emailExists($email){
+        $user = User::select()->where('email', $email)->one();
+        return $user ? true : false;
+    }
+
+    public static function addUser($name, $email, $password, $birthdate){
+        //Pega o hash da senha 
+        $hash = password_hash($password, PASSWORD_DEFAULT);
+        //Pega o token
+        $token =   md5(time().rand(0,9999).time());
+        
+        //Gera o usuario 
+        User::insert([
+            'email' => $email,
+            'password' => $hash,
+            'name' => $name,
+            'birtdate' => $birthdate,
+            'token' => $token
+        ])->execute();
+        
+        // E retorna o token de volta
+        return $token;
+    }
 }

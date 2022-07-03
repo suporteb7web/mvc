@@ -24,10 +24,10 @@ class LoginController extends Controller {
     
          if($email && $password){
             $token = LoginHandler::verifyLogin($email, $password);
-           if($token) {
+            if($token) {
                  $_SESSION['token'] = $token;
                  $this->redirect('/');
-             } else {
+            } else {
                  $_SESSION['flash'] = 'E-mail e/ou senha não conferem.';
                  $this->redirect('/login');
              }
@@ -49,25 +49,25 @@ class LoginController extends Controller {
 
      public function signupAction(){
         $name = filter_input(INPUT_POST, 'name');
-         $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
-         $password = filter_input(INPUT_POST, 'password');
-         $birthdate = filter_input(INPUT_POST, 'birthdate');
+        $email = filter_input(INPUT_POST, 'email', FILTER_VALIDATE_EMAIL);
+        $password = filter_input(INPUT_POST, 'password');
+        $birthdate = filter_input(INPUT_POST, 'birthdate');
         
-         if($name && $email && $password && $birthdate){
-             $birthdate = explode('/', $birthdate);
-
-             if(count($birthdate) != 3) {
+        if($name && $email && $password && $birthdate){
+            $birthdate = explode('/', $birthdate);
+    
+            if(count($birthdate) != 3) {
                 $_SESSION['flash'] = 'Data de nascimento invalida!';
                 $this->redirect('/cadastro');
-             }
+            }
             
-             $birthdate = $birthdate[2].'-'.$birthdate[1]. '-'.$birthdate[0];
+            $birthdate = $birthdate[2].'-'.$birthdate[1]. '-'.$birthdate[0];
     //         //Verifica se a data é real 
     //         // Se verificar e ser TRUE  quer dizer valida e pronta para pegar n obanco de dados 
-             if(strtotime($birthdate) === false){
-                 $_SESSION['flash'] = 'Data de nascimento invalida!';
-                 $this->redirect('/cadastro');
-                 }
+            if(strtotime($birthdate) === false){
+                $_SESSION['flash'] = 'Data de nascimento invalida!';
+                $this->redirect('/cadastro');
+                }
                 
     //             // Se não existir ninguem com esse email nós adicionamos usuario 
                 if(LoginHandler::emailExists($email) === false) {

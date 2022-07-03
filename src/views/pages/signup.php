@@ -25,7 +25,7 @@
 
             <input placeholder="Digite sua Data de Nascimento" class="input" type="text" name="birthdate" id="birthdate" />
  
-            <input class="button" type="submit" value="Acessar o sistema" />
+            <input class="button" type="submit" value="Cadastrar" />
 
             <a href="<?=$base;?>/cadastro">Já tem conta? Faça o login</a>
         </form>

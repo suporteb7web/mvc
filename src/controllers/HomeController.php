@@ -9,6 +9,14 @@ class HomeController extends Controller {
         $this->render('home', ['nome' => 'Bonieky']);
     }
 
+    public function fotos(){
+        $this->render('fotos');
+    }
+
+    public function foto($parametros){
+        echo "Acessando a foto: ".$parametros['id'];
+    }
+
     public function sobre() {
         $this->render('sobre');
     }

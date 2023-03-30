@@ -2,29 +2,16 @@
 namespace src\controllers;
 
 use \core\Controller;
+use \src\models\Usuario;
 
 class HomeController extends Controller {
 
     public function index() {
-        $nome = 'Elias';
+        $usuarios = Usuario::select(['id', 'nome', 'email'])->execute();
 
-        $this->render('home', ['nome'=>$nome, 'idade'=>24]);
-    }
-
-    public function fotos(){
-        $this->render('fotos');
-    }
-
-    public function foto($parametros){
-        echo "Acessando a foto: ".$parametros['id'];
-    }
-
-    public function sobre() {
-        $this->render('sobre');
-    }
-
-    public function sobreP($args) {
-        print_r($args);
+        $this->render('home', [
+            'usuarios' => $usuarios
+        ]);
     }
 
 }

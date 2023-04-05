@@ -16,8 +16,12 @@
             <td><?=$usuario['nome']?></td>
             <td><?=$usuario['email']?></td>
             <td>
-                <a href="<?=$base;?>/usuario/<?=$usuario['id'];?>/editar">[EDITAR]</a>
-                <a href="<?=$base;?>/usuario/<?=$usuario['id'];?>/excluir" onclick="return confirm('Deseja excluir?')">[EXCLUIR]</a>
+                <a href="<?=$base;?>/usuario/<?=$usuario['id'];?>/editar">
+                    <img width="20" src="<?= $base; ?>/assets/images/edit_img.svg" />
+                </a>
+                <a href="<?=$base;?>/usuario/<?=$usuario['id'];?>/excluir" onclick="return confirm('Deseja excluir?')">
+                <img width="20" src="<?= $base; ?>/assets/images/trash_img.svg" />
+                </a>
             </td>
         </tr>
     <?php endforeach; ?>

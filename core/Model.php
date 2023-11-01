@@ -14,21 +14,28 @@ class Model {
     }
 
     public static function _checkH() {
-        if(self::$_h == null) {
+        if (self::$_h == null) {
             $connection = Database::getInstance();
-            self::$_h = new Builder('mysql', function($query, $queryString, $queryParameters) use($connection) {
+            self::$_h = new Builder("mysql", function ($query, $queryString, $queryParameters) use ($connection) {
+                
+                $queryString = str_replace('`', '"', $queryString);
+    
+                $queryString = preg_replace('/\bLIMIT (\d+), (\d+)\b/', 'LIMIT $2 OFFSET $1', $queryString);
+    
                 $statement = $connection->prepare($queryString);
                 $statement->execute($queryParameters);
-
-                if ($query instanceof FetchableInterface)
-                {
+    
+                if ($query instanceof FetchableInterface) {
                     return $statement->fetchAll(\PDO::FETCH_ASSOC);
                 }
             });
         }
-        
-        self::$_h = self::$_h->table( self::getTableName() );
+        self::$_h = self::$_h->table(self::getTableName());
     }
+    
+    
+    
+    
 
     public static function getTableName() {
         $className = explode('\\', get_called_class());

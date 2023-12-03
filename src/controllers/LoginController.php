@@ -30,9 +30,6 @@ class LoginController extends Controller
 
             $token = LoginHandler::veryfiLogin($email, $password);
 
-            var_dump($token);
-            exit;
-
             if ($token) {
                 $_SESSION['token'] = $token;
                 $this->redirect('/');

@@ -11,8 +11,7 @@ class LoginHandler
         if (!empty($_SESSION['token'])) {
             $token = $_SESSION['token'];
 
-            $data = User::select()->where("token", $token)->get();
-            $data = isset($data[0]) ? $data[0] : null;
+            $data = User::select()->where("token", $token)->one();
 
             if (count($data) > 0) {
 
@@ -30,8 +29,7 @@ class LoginHandler
 
     public static function veryfiLogin($email, $password)
     {
-        $user = User::select()->where("email", $email)->get();
-        $user = isset($user[0]) ? $user[0] : null;
+        $user = User::select()->where("email", $email)->one();
         
         if ($user) {
             if (password_verify($password, $user["password"])) {
@@ -40,7 +38,7 @@ class LoginHandler
                 User::update()
                     ->set("token", $token)
                     ->where("email", $email)
-                    ->execute();
+                ->execute(); 
 
                 return $token;
             }
